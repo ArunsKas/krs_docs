@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Docs importer feature.
+ */
+
+include_once 'krs_docs_importer.features.inc';
