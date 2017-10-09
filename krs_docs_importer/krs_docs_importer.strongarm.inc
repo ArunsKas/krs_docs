@@ -15,7 +15,10 @@ function krs_docs_importer_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'default_feeds_importer';
   $strongarm->value = array(
+    'import_t2' => FALSE,
+    'import_t2_attach' => FALSE,
     'node' => FALSE,
+    'test_csv' => FALSE,
     'test_url' => FALSE,
     'user' => FALSE,
   );

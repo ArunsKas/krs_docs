@@ -46,7 +46,7 @@ function krs_docs_importer_feeds_importer_default() {
         'mappings' => array(
           0 => array(
             'source' => 'docno',
-            'target' => 'field_no',
+            'target' => 'field_doc_no',
             'unique' => FALSE,
             'language' => 'und',
           ),
@@ -58,7 +58,7 @@ function krs_docs_importer_feeds_importer_default() {
           ),
           2 => array(
             'source' => 'doctitle',
-            'target' => 'body',
+            'target' => 'field_doc_heading',
             'unique' => FALSE,
             'language' => 'und',
           ),
@@ -70,13 +70,15 @@ function krs_docs_importer_feeds_importer_default() {
           ),
           4 => array(
             'source' => 'doclink',
-            'target' => 'field_failas:uri',
-            'file_exists' => '5',
+            'target' => 'field_doc_file:uri',
+            'unique' => FALSE,
+            'language' => 'und',
           ),
           5 => array(
             'source' => 'Blank source 1',
             'target' => 'guid',
             'unique' => 1,
+            'language' => 'und',
           ),
         ),
         'insert_new' => '1',
@@ -84,7 +86,7 @@ function krs_docs_importer_feeds_importer_default() {
         'update_non_existent' => 'skip',
         'input_format' => 'plain_text',
         'skip_hash_check' => 0,
-        'bundle' => 'ta',
+        'bundle' => 'krs_doc',
         'language' => 'und',
       ),
     ),
