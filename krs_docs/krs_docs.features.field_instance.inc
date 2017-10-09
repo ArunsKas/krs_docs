@@ -22,7 +22,7 @@ function krs_docs_field_default_field_instances() {
         'module' => 'file',
         'settings' => array(),
         'type' => 'file_default',
-        'weight' => 0,
+        'weight' => 1,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -92,6 +92,87 @@ function krs_docs_field_default_field_instances() {
   );
 
   // Exported field_instance:
+  // 'field_collection_item-field_attachs-field_attach_file_priv'.
+  $field_instances['field_collection_item-field_attachs-field_attach_file_priv'] = array(
+    'bundle' => 'field_attachs',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_default',
+        'weight' => 2,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_attach_file_priv',
+    'label' => 'Priedo failas (priv.)',
+    'required' => 0,
+    'settings' => array(
+      'description_field' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'txt docx doc xlsx xls pdf zip ppt pptx dwg jpg png ffdata gif tif',
+      'filefield_paths' => array(
+        'active_updating' => 1,
+        'file_name' => array(
+          'options' => array(
+            'pathauto' => 1,
+            'slashes' => 1,
+            'transliterate' => 1,
+          ),
+          'value' => '[field_collection_item:host:node:field_no]_[field_collection_item:host:node:field-doc-date:custom:Y]_[field_collection_item:field-attach-title].[file:ffp-extension-original]',
+        ),
+        'file_path' => array(
+          'options' => array(
+            'pathauto' => 1,
+            'slashes' => 1,
+            'transliterate' => 1,
+          ),
+          'value' => 'ta_docs/[field_collection_item:host:node:field-doc-date:custom:Y]/[field_collection_item:host:node:field-doc-date:custom:m]',
+        ),
+        'redirect' => FALSE,
+        'retroactive_update' => 1,
+      ),
+      'filefield_paths_enabled' => 1,
+      'max_filesize' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'file',
+      'settings' => array(
+        'filefield_sources' => array(
+          'filefield_sources' => array(
+            'attach' => 0,
+            'clipboard' => 0,
+            'plupload' => 'plupload',
+            'reference' => 0,
+            'remote' => 0,
+            'upload' => 'upload',
+          ),
+          'source_attach' => array(
+            'absolute' => 0,
+            'attach_mode' => 'move',
+            'path' => 'file_attach',
+          ),
+          'source_imce' => array(
+            'imce_mode' => 0,
+          ),
+          'source_reference' => array(
+            'autocomplete' => 0,
+            'search_all_fields' => 0,
+          ),
+        ),
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'file_generic',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance:
   // 'field_collection_item-field_attachs-field_attach_title'.
   $field_instances['field_collection_item-field_attachs-field_attach_title'] = array(
     'bundle' => 'field_attachs',
@@ -104,7 +185,7 @@ function krs_docs_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 1,
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -122,7 +203,7 @@ function krs_docs_field_default_field_instances() {
         'rows' => 1,
       ),
       'type' => 'text_textarea',
-      'weight' => 2,
+      'weight' => 0,
     ),
   );
 
@@ -188,7 +269,7 @@ function krs_docs_field_default_field_instances() {
           'view_mode' => 'full',
         ),
         'type' => 'field_collection_view',
-        'weight' => 4,
+        'weight' => 5,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -209,7 +290,7 @@ function krs_docs_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 5,
+      'weight' => 6,
     ),
   );
 
@@ -265,6 +346,92 @@ function krs_docs_field_default_field_instances() {
       ),
       'type' => 'date_popup',
       'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance: 'node-ta-field_doc_file_priv'.
+  $field_instances['node-ta-field_doc_file_priv'] = array(
+    'bundle' => 'ta',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_default',
+        'weight' => 4,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_doc_file_priv',
+    'label' => 'Failas (priv.)',
+    'required' => 0,
+    'settings' => array(
+      'description_field' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'txt docx doc xlsx xls pdf zip ppt pptx dwg jpg png ffdata gif tif',
+      'filefield_paths' => array(
+        'active_updating' => 1,
+        'file_name' => array(
+          'options' => array(
+            'pathauto' => 1,
+            'slashes' => 1,
+            'transliterate' => 1,
+          ),
+          'value' => '[node:field_no]_[node:field-doc-date:custom:Y].[file:ffp-extension-original]',
+        ),
+        'file_path' => array(
+          'options' => array(
+            'pathauto' => 1,
+            'slashes' => 1,
+            'transliterate' => 1,
+          ),
+          'value' => 'ta_docs/[node:field-doc-date:custom:Y]/[node:field-doc-date:custom:m]',
+        ),
+        'redirect' => FALSE,
+        'retroactive_update' => 1,
+      ),
+      'filefield_paths_enabled' => 1,
+      'max_filesize' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'file',
+      'settings' => array(
+        'filefield_sources' => array(
+          'filefield_sources' => array(
+            'attach' => 0,
+            'clipboard' => 0,
+            'plupload' => 'plupload',
+            'reference' => 0,
+            'remote' => 0,
+            'upload' => 'upload',
+          ),
+          'source_attach' => array(
+            'absolute' => 0,
+            'attach_mode' => 'move',
+            'path' => 'file_attach',
+          ),
+          'source_imce' => array(
+            'imce_mode' => 0,
+          ),
+          'source_reference' => array(
+            'autocomplete' => 0,
+            'search_all_fields' => 0,
+          ),
+        ),
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'file_generic',
+      'weight' => 5,
     ),
   );
 
@@ -400,9 +567,11 @@ function krs_docs_field_default_field_instances() {
   t('Body');
   t('Data');
   t('Failas');
+  t('Failas (priv.)');
   t('Numeris');
   t('Priedai');
   t('Priedo failas');
+  t('Priedo failas (priv.)');
 
   return $field_instances;
 }
