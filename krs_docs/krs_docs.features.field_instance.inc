@@ -25,9 +25,10 @@ function krs_docs_field_default_field_instances() {
         'weight' => 1,
       ),
     ),
+    'entity_token_output' => 0,
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_attach_file',
-    'label' => 'Priedo failas',
+    'label' => 'Priedo failas_old',
     'required' => 0,
     'settings' => array(
       'description_field' => 0,
@@ -47,9 +48,9 @@ function krs_docs_field_default_field_instances() {
           'options' => array(
             'pathauto' => 1,
             'slashes' => 1,
-            'transliterate' => 0,
+            'transliterate' => 1,
           ),
-          'value' => 'ta_docs/[field_collection_item:host:node:field-doc-date:custom:Y]/[field_collection_item:host:node:field-doc-date:custom:m]',
+          'value' => 'docs/[field_collection_item:host:node:field_doc_type]/[field_collection_item:host:node:field-doc-date:custom:Y]/[field_collection_item:host:node:field-doc-date:custom:m]',
         ),
         'redirect' => FALSE,
         'retroactive_update' => 0,
@@ -106,9 +107,10 @@ function krs_docs_field_default_field_instances() {
         'weight' => 2,
       ),
     ),
+    'entity_token_output' => 0,
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_attach_file_priv',
-    'label' => 'Priedo failas (priv.)',
+    'label' => 'Priedo failas (priv.)_old',
     'required' => 0,
     'settings' => array(
       'description_field' => 0,
@@ -130,10 +132,10 @@ function krs_docs_field_default_field_instances() {
             'slashes' => 1,
             'transliterate' => 1,
           ),
-          'value' => 'ta_docs/[field_collection_item:host:node:field-doc-date:custom:Y]/[field_collection_item:host:node:field-doc-date:custom:m]',
+          'value' => 'docs/[field_collection_item:host:node:field_doc_type]/[field_collection_item:host:node:field-doc-date:custom:Y]/[field_collection_item:host:node:field-doc-date:custom:m]',
         ),
         'redirect' => FALSE,
-        'retroactive_update' => 1,
+        'retroactive_update' => 0,
       ),
       'filefield_paths_enabled' => 1,
       'max_filesize' => '',
@@ -190,7 +192,7 @@ function krs_docs_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_attach_title',
-    'label' => 'Antraštė',
+    'label' => 'Antraštė_old',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -207,6 +209,203 @@ function krs_docs_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance:
+  // 'field_collection_item-field_doc_attachs-field_doc_attach_file'.
+  $field_instances['field_collection_item-field_doc_attachs-field_doc_attach_file'] = array(
+    'bundle' => 'field_doc_attachs',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_default',
+        'weight' => 1,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_doc_attach_file',
+    'label' => 'Priedo failas',
+    'required' => 0,
+    'settings' => array(
+      'description_field' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'txt docx doc xlsx xls pdf zip ppt pptx dwg jpg png ffdata gif tif',
+      'filefield_paths' => array(
+        'active_updating' => 1,
+        'file_name' => array(
+          'options' => array(
+            'pathauto' => 1,
+            'slashes' => 1,
+            'transliterate' => 1,
+          ),
+          'value' => '[field_collection_item:host:node:field_no]_[field_collection_item:host:node:field-doc-date:custom:Y]_[field_collection_item:field-attach-title].[file:ffp-extension-original]',
+        ),
+        'file_path' => array(
+          'options' => array(
+            'pathauto' => 1,
+            'slashes' => 1,
+            'transliterate' => 1,
+          ),
+          'value' => 'docs/[field_collection_item:host:node:field_doc_type]/[field_collection_item:host:node:field-doc-date:custom:Y]/[field_collection_item:host:node:field-doc-date:custom:m]',
+        ),
+        'redirect' => FALSE,
+        'retroactive_update' => 0,
+      ),
+      'filefield_paths_enabled' => 1,
+      'max_filesize' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'file',
+      'settings' => array(
+        'filefield_sources' => array(
+          'filefield_sources' => array(
+            'attach' => 0,
+            'clipboard' => 0,
+            'plupload' => 'plupload',
+            'reference' => 0,
+            'remote' => 0,
+            'upload' => 'upload',
+          ),
+          'source_attach' => array(
+            'absolute' => 0,
+            'attach_mode' => 'move',
+            'path' => 'file_attach',
+          ),
+          'source_imce' => array(
+            'imce_mode' => 0,
+          ),
+          'source_reference' => array(
+            'autocomplete' => 0,
+            'search_all_fields' => 0,
+          ),
+        ),
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'file_generic',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_doc_attachs-field_doc_attach_file_priv'.
+  $field_instances['field_collection_item-field_doc_attachs-field_doc_attach_file_priv'] = array(
+    'bundle' => 'field_doc_attachs',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_default',
+        'weight' => 2,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_doc_attach_file_priv',
+    'label' => 'Priedo failas (priv.)',
+    'required' => 0,
+    'settings' => array(
+      'description_field' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'txt docx doc xlsx xls pdf zip ppt pptx dwg jpg png ffdata gif tif',
+      'filefield_paths' => array(
+        'active_updating' => 1,
+        'file_name' => array(
+          'options' => array(
+            'pathauto' => 1,
+            'slashes' => 1,
+            'transliterate' => 1,
+          ),
+          'value' => '[field_collection_item:host:node:field_no]_[field_collection_item:host:node:field-doc-date:custom:Y]_[field_collection_item:field-attach-title].[file:ffp-extension-original]',
+        ),
+        'file_path' => array(
+          'options' => array(
+            'pathauto' => 1,
+            'slashes' => 1,
+            'transliterate' => 1,
+          ),
+          'value' => 'docs/[field_collection_item:host:node:field_doc_type]/[field_collection_item:host:node:field-doc-date:custom:Y]/[field_collection_item:host:node:field-doc-date:custom:m]',
+        ),
+        'redirect' => FALSE,
+        'retroactive_update' => 0,
+      ),
+      'filefield_paths_enabled' => 1,
+      'max_filesize' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'file',
+      'settings' => array(
+        'filefield_sources' => array(
+          'filefield_sources' => array(
+            'attach' => 0,
+            'clipboard' => 0,
+            'plupload' => 'plupload',
+            'reference' => 0,
+            'remote' => 0,
+            'upload' => 'upload',
+          ),
+          'source_attach' => array(
+            'absolute' => 0,
+            'attach_mode' => 'move',
+            'path' => 'file_attach',
+          ),
+          'source_imce' => array(
+            'imce_mode' => 0,
+          ),
+          'source_reference' => array(
+            'autocomplete' => 0,
+            'search_all_fields' => 0,
+          ),
+        ),
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'file_generic',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_doc_attachs-field_doc_attach_heading'.
+  $field_instances['field_collection_item-field_doc_attachs-field_doc_attach_heading'] = array(
+    'bundle' => 'field_doc_attachs',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_doc_attach_heading',
+    'label' => 'Priedo antraštė',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 3,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 1,
+    ),
+  );
+
   // Exported field_instance: 'node-ta-body'.
   $field_instances['node-ta-body'] = array(
     'bundle' => 'ta',
@@ -219,7 +418,7 @@ function krs_docs_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 2,
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'hidden',
@@ -229,6 +428,13 @@ function krs_docs_field_default_field_instances() {
         ),
         'type' => 'text_summary_or_trimmed',
         'weight' => 0,
+      ),
+      'token' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 3,
       ),
     ),
     'entity_type' => 'node',
@@ -247,7 +453,7 @@ function krs_docs_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 3,
+      'weight' => 9,
     ),
   );
 
@@ -269,7 +475,7 @@ function krs_docs_field_default_field_instances() {
           'view_mode' => 'full',
         ),
         'type' => 'field_collection_view',
-        'weight' => 5,
+        'weight' => 6,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -277,9 +483,71 @@ function krs_docs_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'token' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 6,
+      ),
     ),
     'entity_type' => 'node',
     'field_name' => 'field_attachs',
+    'label' => 'Priedai_old',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 12,
+    ),
+  );
+
+  // Exported field_instance: 'node-ta-field_doc_attachs'.
+  $field_instances['node-ta-field_doc_attachs'] = array(
+    'bundle' => 'ta',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 10,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'token' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_doc_attachs',
     'label' => 'Priedai',
     'required' => 0,
     'settings' => array(
@@ -290,7 +558,7 @@ function krs_docs_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 6,
+      'weight' => 7,
     ),
   );
 
@@ -319,6 +587,20 @@ function krs_docs_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 0,
+      ),
+      'token' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'short',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+          'show_remaining_days' => 0,
+        ),
+        'type' => 'date_default',
+        'weight' => 1,
       ),
     ),
     'entity_type' => 'node',
@@ -349,8 +631,8 @@ function krs_docs_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ta-field_doc_file_priv'.
-  $field_instances['node-ta-field_doc_file_priv'] = array(
+  // Exported field_instance: 'node-ta-field_doc_file'.
+  $field_instances['node-ta-field_doc_file'] = array(
     'bundle' => 'ta',
     'deleted' => 0,
     'description' => '',
@@ -360,7 +642,7 @@ function krs_docs_field_default_field_instances() {
         'module' => 'file',
         'settings' => array(),
         'type' => 'file_default',
-        'weight' => 4,
+        'weight' => 9,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -368,10 +650,16 @@ function krs_docs_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'token' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_doc_file_priv',
-    'label' => 'Failas (priv.)',
+    'field_name' => 'field_doc_file',
+    'label' => 'Failas',
     'required' => 0,
     'settings' => array(
       'description_field' => 0,
@@ -385,7 +673,7 @@ function krs_docs_field_default_field_instances() {
             'slashes' => 1,
             'transliterate' => 1,
           ),
-          'value' => '[node:field_no]_[node:field-doc-date:custom:Y].[file:ffp-extension-original]',
+          'value' => '[node:field_doc_no]_[node:field-doc-date:custom:Y].[file:ffp-extension-original]',
         ),
         'file_path' => array(
           'options' => array(
@@ -393,10 +681,10 @@ function krs_docs_field_default_field_instances() {
             'slashes' => 1,
             'transliterate' => 1,
           ),
-          'value' => 'ta_docs/[node:field-doc-date:custom:Y]/[node:field-doc-date:custom:m]',
+          'value' => 'docs/[node:field_doc_type]/[node:field-doc-date:custom:Y]/[node:field-doc-date:custom:m]',
         ),
         'redirect' => FALSE,
-        'retroactive_update' => 1,
+        'retroactive_update' => 0,
       ),
       'filefield_paths_enabled' => 1,
       'max_filesize' => '',
@@ -435,6 +723,237 @@ function krs_docs_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-ta-field_doc_file_priv'.
+  $field_instances['node-ta-field_doc_file_priv'] = array(
+    'bundle' => 'ta',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_default',
+        'weight' => 5,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'token' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_default',
+        'weight' => 5,
+      ),
+    ),
+    'entity_token_output' => 0,
+    'entity_type' => 'node',
+    'field_name' => 'field_doc_file_priv',
+    'label' => 'Failas (priv.)',
+    'required' => 0,
+    'settings' => array(
+      'description_field' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'txt docx doc xlsx xls pdf zip ppt pptx dwg jpg png ffdata gif tif',
+      'filefield_paths' => array(
+        'active_updating' => 1,
+        'file_name' => array(
+          'options' => array(
+            'pathauto' => 1,
+            'slashes' => 1,
+            'transliterate' => 1,
+          ),
+          'value' => '[node:field_no]_[node:field-doc-date:custom:Y].[file:ffp-extension-original]',
+        ),
+        'file_path' => array(
+          'options' => array(
+            'pathauto' => 1,
+            'slashes' => 1,
+            'transliterate' => 1,
+          ),
+          'value' => 'docs/[node:field_doc_type]/[node:field-doc-date:custom:Y]/[node:field-doc-date:custom:m]',
+        ),
+        'redirect' => FALSE,
+        'retroactive_update' => 0,
+      ),
+      'filefield_paths_enabled' => 1,
+      'max_filesize' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'file',
+      'settings' => array(
+        'filefield_sources' => array(
+          'filefield_sources' => array(
+            'attach' => 0,
+            'clipboard' => 0,
+            'plupload' => 'plupload',
+            'reference' => 0,
+            'remote' => 0,
+            'upload' => 'upload',
+          ),
+          'source_attach' => array(
+            'absolute' => 0,
+            'attach_mode' => 'move',
+            'path' => 'file_attach',
+          ),
+          'source_imce' => array(
+            'imce_mode' => 0,
+          ),
+          'source_reference' => array(
+            'autocomplete' => 0,
+            'search_all_fields' => 0,
+          ),
+        ),
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'file_generic',
+      'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance: 'node-ta-field_doc_heading'.
+  $field_instances['node-ta-field_doc_heading'] = array(
+    'bundle' => 'ta',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 7,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'token' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_doc_heading',
+    'label' => 'Antraštė',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 3,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance: 'node-ta-field_doc_no'.
+  $field_instances['node-ta-field_doc_no'] = array(
+    'bundle' => 'ta',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 8,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'token' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_doc_no',
+    'label' => 'Numeris',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance: 'node-ta-field_doc_type'.
+  $field_instances['node-ta-field_doc_type'] = array(
+    'bundle' => 'ta',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 2,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'token' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_key',
+        'weight' => 2,
+      ),
+    ),
+    'entity_token_output' => 0,
+    'entity_type' => 'node',
+    'field_name' => 'field_doc_type',
+    'label' => 'Rūšis',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 3,
+    ),
+  );
+
   // Exported field_instance: 'node-ta-field_failas'.
   $field_instances['node-ta-field_failas'] = array(
     'bundle' => 'ta',
@@ -446,7 +965,7 @@ function krs_docs_field_default_field_instances() {
         'module' => 'file',
         'settings' => array(),
         'type' => 'file_default',
-        'weight' => 3,
+        'weight' => 4,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -454,10 +973,18 @@ function krs_docs_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'token' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_default',
+        'weight' => 4,
+      ),
     ),
+    'entity_token_output' => 0,
     'entity_type' => 'node',
     'field_name' => 'field_failas',
-    'label' => 'Failas',
+    'label' => 'Failas_old',
     'required' => 0,
     'settings' => array(
       'description_field' => 0,
@@ -477,9 +1004,9 @@ function krs_docs_field_default_field_instances() {
           'options' => array(
             'pathauto' => 1,
             'slashes' => 1,
-            'transliterate' => 0,
+            'transliterate' => 1,
           ),
-          'value' => 'ta_docs/[node:field-doc-date:custom:Y]/[node:field-doc-date:custom:m]',
+          'value' => 'docs/[node:field_doc_type]/[node:field-doc-date:custom:Y]/[node:field-doc-date:custom:m]',
         ),
         'redirect' => FALSE,
         'retroactive_update' => 0,
@@ -517,7 +1044,7 @@ function krs_docs_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'file_generic',
-      'weight' => 4,
+      'weight' => 11,
     ),
   );
 
@@ -541,10 +1068,17 @@ function krs_docs_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'token' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
     ),
     'entity_type' => 'node',
     'field_name' => 'field_no',
-    'label' => 'Numeris',
+    'label' => 'Numeris_old',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -557,21 +1091,29 @@ function krs_docs_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 1,
+      'weight' => 10,
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
   t('Antraštė');
+  t('Antraštė_old');
   t('Body');
   t('Data');
   t('Failas');
   t('Failas (priv.)');
+  t('Failas_old');
   t('Numeris');
+  t('Numeris_old');
   t('Priedai');
+  t('Priedai_old');
+  t('Priedo antraštė');
   t('Priedo failas');
   t('Priedo failas (priv.)');
+  t('Priedo failas (priv.)_old');
+  t('Priedo failas_old');
+  t('Rūšis');
 
   return $field_instances;
 }
