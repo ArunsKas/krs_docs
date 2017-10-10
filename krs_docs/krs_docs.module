@@ -5,3 +5,101 @@
  */
 
 include_once 'krs_docs.features.inc';
+
+function krs_docs_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'krs_doc_node_form') {
+    $form['#validate'][] = '_krs_docs_form_validate';
+  }
+}
+
+/**
+ * Custom Doc form validation
+ * 
+ * If Document No is set, file description fields must be empty.
+ * 
+ * If Document No isn't set, file description fields must be filled to include 
+ * description in file name as a token.
+ * 
+ */
+function _krs_docs_form_validate($form, &$form_state) {
+  
+  $values = $form_state['values'];
+
+  if (empty($values['field_doc_no'][LANGUAGE_NONE][0]['value'])) {
+    // if doc_no is empty
+    // then check if file is uploaded and description is not empty
+    foreach($values as $field => $value) {
+      if (strpos($field, 'file')) {
+        // process only 'field_doc_file', 'field_doc_file_priv'
+        if (($value[LANGUAGE_NONE][0]['fid'] <> 0) && !_krs_docs_file_descr_filled($field, $value)) {
+          form_set_error($field, t('You must input file description'));
+        }
+      }
+      if (strpos($field, 'attachs')) {
+        // process only 'field_doc_attachs'
+        foreach ($value[LANGUAGE_NONE] as $key => $field_collection_item) {
+          if (is_array($field_collection_item)) {
+            foreach ($field_collection_item as $c_field => $c_value) {
+              if (strpos($c_field, 'file')) {
+                // process only 'field_doc_attach_file' and 'field_doc_attach_file_priv'
+                if (($c_value[LANGUAGE_NONE][0]['fid'] <> 0) && !_krs_docs_file_descr_filled($c_field, $c_value)) {  
+                  form_set_error('field_doc_attachs]['.LANGUAGE_NONE.']['.$key.']['.$c_field.']['.LANGUAGE_NONE.'][0][description', t('You must input file description'));
+                }
+              }
+            }
+          }       
+        }
+      }
+    }
+  } else {
+    // if doc_no is set so we need show error about non empty file description 
+    // fields
+    foreach($values as $field => $value) {
+      if (strpos($field, 'file')) {
+        // process only 'field_doc_file', 'field_doc_file_priv'
+        if (($value[LANGUAGE_NONE][0]['fid'] <> 0) && _krs_docs_file_descr_filled($field, $value)) {
+          form_set_error($field, t('File description field must be empty if document No is filled.'));
+        }
+      }
+      if (strpos($field, 'attachs')) {
+        // process only 'field_doc_attachs'
+        foreach ($value[LANGUAGE_NONE] as $key => $field_collection_item) {
+          if (is_array($field_collection_item)) {
+            foreach ($field_collection_item as $c_field => $c_value) {
+              if (strpos($c_field, 'file')) {
+                // process only 'field_doc_attach_file' and 'field_doc_attach_file_priv'
+                if (($c_value[LANGUAGE_NONE][0]['fid'] <> 0) && _krs_docs_file_descr_filled($c_field, $c_value)) {  
+                  form_set_error('field_doc_attachs]['.LANGUAGE_NONE.']['.$key.']['.$c_field.']['.LANGUAGE_NONE.'][0][description', t('File description field must be empty if document No is filled.'));
+                }
+              }
+            }
+          }       
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Function to check if field has file uploaded and file description attribute
+ * isn't empty
+ * 
+ */
+function _krs_docs_file_descr_filled($field_name, $field) {
+  if (isset($field[LANGUAGE_NONE][0]['fid']) && ($field[LANGUAGE_NONE][0]['fid'] > 0)) {
+    if (isset($field[LANGUAGE_NONE][0]['description']) && strlen($field[LANGUAGE_NONE][0]['description']) > 0) {
+        //dd($field);
+      return TRUE;
+    }
+  } else if (isset($field[LANGUAGE_NONE][0]['fid']) && ($field[LANGUAGE_NONE][0]['fid'] == 0)) {
+    if (isset($field[LANGUAGE_NONE][0]['description'])) {
+      if (strlen($field[LANGUAGE_NONE][0]['description']) > 0) {
+        return TRUE;
+      } else {
+        dd($field);
+        return FALSE;
+      }
+    } 
+  }
+  return FALSE;
+}
