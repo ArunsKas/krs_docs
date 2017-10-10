@@ -30,7 +30,7 @@ function krs_docs_field_default_field_instances() {
     'label' => 'Priedo failas',
     'required' => 0,
     'settings' => array(
-      'description_field' => 0,
+      'description_field' => 1,
       'file_directory' => '',
       'file_extensions' => 'txt docx doc xlsx xls pdf zip ppt pptx dwg jpg png ffdata gif tif',
       'filefield_paths' => array(
@@ -41,7 +41,7 @@ function krs_docs_field_default_field_instances() {
             'slashes' => 1,
             'transliterate' => 1,
           ),
-          'value' => '[field_collection_item:host:node:field_no]_[field_collection_item:host:node:field-doc-date:custom:Y]_[field_collection_item:field-attach-title].[file:ffp-extension-original]',
+          'value' => '[field_collection_item:field-doc-attach-file:description][field_collection_item:host:node:field-doc-no]_[field_collection_item:host:node:field-doc-date:custom:Y]_[field_collection_item:field-doc-attach-heading].[file:ffp-extension-original]',
         ),
         'file_path' => array(
           'options' => array(
@@ -111,7 +111,7 @@ function krs_docs_field_default_field_instances() {
     'label' => 'Priedo failas (priv.)',
     'required' => 0,
     'settings' => array(
-      'description_field' => 0,
+      'description_field' => 1,
       'file_directory' => '',
       'file_extensions' => 'txt docx doc xlsx xls pdf zip ppt pptx dwg jpg png ffdata gif tif',
       'filefield_paths' => array(
@@ -122,7 +122,7 @@ function krs_docs_field_default_field_instances() {
             'slashes' => 1,
             'transliterate' => 1,
           ),
-          'value' => '[field_collection_item:host:node:field_no]_[field_collection_item:host:node:field-doc-date:custom:Y]_[field_collection_item:field-attach-title].[file:ffp-extension-original]',
+          'value' => '[field_collection_item:field-doc-attach-file-priv:description][field_collection_item:host:node:field-doc-no]_[field_collection_item:host:node:field-doc-date:custom:Y]_[field_collection_item:field-doc-attach-heading].[file:ffp-extension-original]',
         ),
         'file_path' => array(
           'options' => array(
@@ -356,7 +356,7 @@ function krs_docs_field_default_field_instances() {
     'label' => 'Failas',
     'required' => 0,
     'settings' => array(
-      'description_field' => 0,
+      'description_field' => 1,
       'file_directory' => '',
       'file_extensions' => 'txt docx doc xlsx xls pdf zip ppt pptx dwg jpg png ffdata gif tif',
       'filefield_paths' => array(
@@ -367,7 +367,7 @@ function krs_docs_field_default_field_instances() {
             'slashes' => 1,
             'transliterate' => 1,
           ),
-          'value' => '[node:field-doc-no]_[node:field-doc-date:custom:Y].[file:ffp-extension-original]',
+          'value' => '[node:field-doc-file:description][node:field-doc-no]_[node:field-doc-date:custom:Y].[file:ffp-extension-original]',
         ),
         'file_path' => array(
           'options' => array(
@@ -450,7 +450,7 @@ function krs_docs_field_default_field_instances() {
     'label' => 'Failas (priv.)',
     'required' => 0,
     'settings' => array(
-      'description_field' => 0,
+      'description_field' => 1,
       'file_directory' => '',
       'file_extensions' => 'txt docx doc xlsx xls pdf zip ppt pptx dwg jpg png ffdata gif tif',
       'filefield_paths' => array(
@@ -461,7 +461,7 @@ function krs_docs_field_default_field_instances() {
             'slashes' => 1,
             'transliterate' => 1,
           ),
-          'value' => '[node:field-doc-no]_[node:field-doc-date:custom:Y].[file:ffp-extension-original]',
+          'value' => '[node:field-doc-file-priv:description][node:field-doc-no]_[node:field-doc-date:custom:Y].[file:ffp-extension-original]',
         ),
         'file_path' => array(
           'options' => array(

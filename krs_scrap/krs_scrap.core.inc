@@ -50,12 +50,13 @@ function _write_to_csv($data, $filename) {
 function _write_parsed_to_csv($data, $register, $format = NULL) {
   // prepare data for writing to csv  
   
-// prepare header line
+  // prepare header line
   $csv_header = array(
     'DocNo',
     'DocDate',
     'DocTitle',
     'DocLink',
+    'DocType',
   );
 
   // calculate max attachment amount for header line formatting
@@ -85,6 +86,7 @@ function _write_parsed_to_csv($data, $register, $format = NULL) {
       $row['docdate'],
       $row['title'],
       $row['main']['link'],
+      _krs_scrap_get_doc_type($row['no']),
     );
     if ($format == 'attach') {
       // add to array one line per one attachment
@@ -155,6 +157,24 @@ function _write_parsed_to_csv($data, $register, $format = NULL) {
     '!url' => file_create_url($file->uri),
     '!filename' => $filename,
   )));
+}
+
+function _krs_scrap_get_doc_type($doc_no) {
+  $register = explode('-', $doc_no);
+  switch ($register[0]) {
+    case 'A1': 
+      $doc_type = 'dirisak';
+      break;
+    case 'T2': 
+      $doc_type = 'tarspr';
+      break;
+    case 'T1': 
+      $doc_type = 'tarproj';
+      break;
+    default:
+      $doc_type = 'other';
+  }
+  return $doc_type;
 }
 
 function _csv_files_table($register) {

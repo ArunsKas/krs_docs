@@ -80,6 +80,12 @@ function krs_docs_importer_feeds_importer_default() {
             'unique' => 1,
             'language' => 'und',
           ),
+          6 => array(
+            'source' => 'doctype',
+            'target' => 'field_doc_type',
+            'unique' => FALSE,
+            'language' => 'und',
+          ),
         ),
         'insert_new' => '1',
         'update_existing' => '1',
@@ -129,21 +135,21 @@ function krs_docs_importer_feeds_importer_default() {
     'processor' => array(
       'plugin_key' => 'FeedsFieldCollectionProcessor',
       'config' => array(
-        'field_name' => 'field_attachs',
+        'field_name' => 'field_doc_attachs',
         'host_entity_type' => 'node',
         'guid_field_name' => '',
         'is_field' => 0,
         'mappings' => array(
           0 => array(
             'source' => 'attach1',
-            'target' => 'field_attach_title',
+            'target' => 'field_doc_attach_heading',
             'unique' => FALSE,
             'language' => 'und',
           ),
           1 => array(
             'source' => 'link1',
-            'target' => 'field_attach_file:uri',
-            'file_exists' => '5',
+            'target' => 'field_doc_attach_file:uri',
+            'unique' => FALSE,
             'language' => 'und',
           ),
           2 => array(
@@ -168,6 +174,7 @@ function krs_docs_importer_feeds_importer_default() {
             'source' => 'Blank source 2',
             'target' => 'guid',
             'unique' => 1,
+            'language' => 'und',
           ),
         ),
         'insert_new' => '1',
@@ -175,7 +182,7 @@ function krs_docs_importer_feeds_importer_default() {
         'update_non_existent' => 'skip',
         'input_format' => 'plain_text',
         'skip_hash_check' => 0,
-        'bundle' => 'field_attachs',
+        'bundle' => 'field_doc_attachs',
         'language' => 'und',
         'host_entity_importer_id' => '',
         'host_entity_importer_nid' => NULL,
