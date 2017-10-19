@@ -3,6 +3,7 @@ core = 7.x
 package = KRS
 dependencies[] = date
 dependencies[] = date_popup
+dependencies[] = entity_token
 dependencies[] = features
 dependencies[] = field_collection
 dependencies[] = file
