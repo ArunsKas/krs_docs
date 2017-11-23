@@ -96,7 +96,7 @@ function _krs_docs_file_descr_filled($field_name, $field) {
       if (strlen($field[LANGUAGE_NONE][0]['description']) > 0) {
         return TRUE;
       } else {
-        dd($field);
+        //dd($field);
         return FALSE;
       }
     } 

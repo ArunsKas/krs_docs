@@ -1,4 +1,4 @@
-name = Docs importer
+name = Dokumentų importuotojas
 description = Import docs from csv
 core = 7.x
 package = KRS

@@ -1,4 +1,4 @@
-name = KRS scrap
+name = Old kretinga.lt scraper
 description = Scrap old kretinga.lt docs and gallery pages and parse to CSV.
 package = KRS
 core = 7.x
